@@ -1,7 +1,5 @@
-// As no one take this name, so I will take if you do not mind
-// I like this idea very much
-use std::sync::{Arc, Mutex};
-
+// Same Idea found.. sad
+// so I still think this train is good
 pub trait PipeTrait {
     fn pipe<T>(self, f: fn(Self) -> T) -> T
     where
@@ -26,12 +24,4 @@ pub trait PipeTrait {
     }
 }
 
-impl<T> PipeTrait for Mutex<T> {}
-
-impl<T> PipeTrait for Arc<T> {}
-
-impl<T> PipeTrait for Vec<T> {}
-
-impl PipeTrait for i32 {}
-
-impl PipeTrait for usize {}
+impl<X> PipeTrait for X {}
