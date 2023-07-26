@@ -8,6 +8,20 @@ trait PipeTrait {
     {
         f(self)
     }
+
+    fn pipe_ref<T>(&self, f: fn(&Self) -> T) -> T
+    where
+        T: PipeTrait,
+    {
+        f(self)
+    }
+
+    fn pipe_refmut<T>(&mut self, f: fn(&mut Self) -> T) -> T
+    where
+        T: PipeTrait,
+    {
+        f(self)
+    }
 }
 
 impl<T> PipeTrait for Mutex<T> {}
