@@ -1,6 +1,8 @@
+// As no one take this name, so I will take if you do not mind
+// I like this idea very much
 use std::sync::{Arc, Mutex};
 
-trait PipeTrait {
+pub trait PipeTrait {
     fn pipe<T>(self, f: fn(Self) -> T) -> T
     where
         Self: Sized,
@@ -33,8 +35,3 @@ impl<T> PipeTrait for Vec<T> {}
 impl PipeTrait for i32 {}
 
 impl PipeTrait for usize {}
-
-fn main() {
-    let _ = 1.pipe(Mutex::new).pipe(Arc::new);
-    println!("Hello, world!");
-}
